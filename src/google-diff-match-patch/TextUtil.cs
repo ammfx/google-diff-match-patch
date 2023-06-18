@@ -231,11 +231,7 @@ namespace DiffMatchPatch
             var sb = new StringBuilder(str.Length);
             foreach (char c in str)
             {
-#if NET7_0_OR_GREATER
-                if (char.IsAsciiLetterOrDigit(c) || unescaped.Contains(c))
-#else
-                if ((char.IsLetterOrDigit(c) && c <= 'z') || unescaped.Contains(c))
-#endif
+                if (char.IsLetterOrDigit(c) || unescaped.Contains(c))
                 {
                     sb.Append(c);
                 }
